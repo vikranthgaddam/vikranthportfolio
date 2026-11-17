@@ -31,13 +31,43 @@ function renderProjects(filter = "all") {
           <h3 class="project-title">${project.title}</h3>
           <p class="project-summary">${project.summary}</p>
           <div class="project-benchmark">${project.benchmark}</div>
+
+          <div class="project-usage-box">
+            <div class="usage-section">
+              <span class="usage-label">PRIMARY USE CASES</span>
+              <ul class="usage-list">
+                ${(project.useCases || [])
+                  .map((uc) => `<li>${uc}</li>`)
+                  .join("")}
+              </ul>
+            </div>
+            <div class="usage-section usage-implementations">
+              <span class="usage-label">WHERE IMPLEMENTED IN PRODUCTION</span>
+              <div class="impl-mini-list">
+                ${(project.implementations || [])
+                  .map(
+                    (impl) => `
+                    <div class="impl-mini-item">
+                      <div class="impl-mini-header">
+                        <strong class="impl-mini-context">${impl.context}</strong>
+                        <span class="impl-mini-env">${impl.environment}</span>
+                      </div>
+                      <p class="impl-mini-detail">${impl.detail}</p>
+                    </div>
+                  `
+                  )
+                  .join("")}
+              </div>
+            </div>
+          </div>
+
           <div class="project-footer">
             <div class="stack-pills">
               ${project.stack
                 .map((tech) => `<span class="stack-pill">${tech}</span>`)
                 .join("")}
             </div>
-            <span class="case-study-trigger">Read Case Study →</span>
+            <span class="case-study-trigger">Full Case Study →</span>
           </div>
         </div>
       </article>
@@ -163,11 +193,35 @@ function openDrawer(projectId) {
       <p>${project.architecture}</p>
     </div>
     <div class="drawer-section">
-      <h4>03 // Engineering Trade-offs</h4>
+      <h4>03 // Primary Use Cases</h4>
+      <ul class="drawer-bullet-list">
+        ${(project.useCases || []).map((uc) => `<li>${uc}</li>`).join("")}
+      </ul>
+    </div>
+    <div class="drawer-section">
+      <h4>04 // Production Implementations &amp; Where Used</h4>
+      <div class="drawer-impl-grid">
+        ${(project.implementations || [])
+          .map(
+            (impl) => `
+            <div class="drawer-impl-card">
+              <div class="drawer-impl-top">
+                <strong>${impl.context}</strong>
+                <span class="drawer-impl-env">${impl.environment}</span>
+              </div>
+              <p>${impl.detail}</p>
+            </div>
+          `
+          )
+          .join("")}
+      </div>
+    </div>
+    <div class="drawer-section">
+      <h4>05 // Engineering Trade-offs</h4>
       <p>${project.tradeoffs}</p>
     </div>
     <div class="drawer-section">
-      <h4>04 // Technology Stack</h4>
+      <h4>06 // Technology Stack</h4>
       <div class="stack-pills">
         ${project.stack.map((s) => `<span class="stack-pill">${s}</span>`).join("")}
       </div>

@@ -17,12 +17,32 @@ export const PROJECTS = [
     summary:
       "A Raft-backed, partitioned event streaming storage engine written in Rust with zero-copy I/O, deterministic simulation testing, and sub-5ms P99 write replication.",
     benchmark: "420k msg/sec sustained throughput · 3.8ms P99 commit latency",
+    deployedIn: "Core Telemetry & Financial Ledger Pipelines (Apex Cloud Systems)",
     image: "assets/project_distributed_engine.jpg",
     stack: ["Rust", "io_uring", "Raft Consensus", "gRPC", "Protobuf"],
     metrics: [
       { value: "3.8ms", label: "P99 Commit" },
       { value: "420k/s", label: "Writes / Node" },
       { value: "0", label: "Jepsen Data Loss" }
+    ],
+    useCases: [
+      "High-frequency event ingestion & write-ahead log (WAL) replication for latency-critical microservices",
+      "Idempotent financial transaction ordering and deterministic state-machine replay",
+      "Multi-AZ change-data-capture (CDC) buffer between OLTP databases and columnar analytics stores"
+    ],
+    implementations: [
+      {
+        context: "Apex Cloud Systems · Core Telemetry Pipeline",
+        environment: "3 AWS Regions · Bare-Metal NVMe Cluster",
+        detail:
+          "Deployed as the durable ingestion backbone ahead of ClickHouse analytics clusters, replacing legacy JVM brokers and eliminating GC-induced tail-latency spikes across 1.8M+ peak events/sec."
+      },
+      {
+        context: "Order & Settlement State Replication",
+        environment: "Multi-Raft Consensus Groups (Quorum = 3)",
+        detail:
+          "Used as the replicated write-ahead log for distributed state machines requiring strict serializability and zero-data-loss recovery under network partition faults."
+      }
     ],
     problem:
       "Existing JVM-based message brokers suffered from garbage collection tail-latency spikes (P99.9 > 180ms) during high-fanout segment compaction windows.",
@@ -42,12 +62,32 @@ export const PROJECTS = [
     summary:
       "Orchestration control plane and Firecracker micro-VM snapshot manager enabling cold starts under 35ms for untrusted serverless workloads across regional edge nodes.",
     benchmark: "28ms median micro-VM restore time · 4.2x denser host bin-packing",
+    deployedIn: "Multi-Tenant Customer Webhook & Edge Compute Fleet (19 Regions)",
     image: "assets/project_cloud_runtime.jpg",
     stack: ["Go", "Firecracker", "eBPF", "Kubernetes", "Linux Cgroups"],
     metrics: [
       { value: "28ms", label: "Warm Restore" },
       { value: "4.2x", label: "Node Density" },
       { value: "19 Regions", label: "Control Plane" }
+    ],
+    useCases: [
+      "Sandboxed execution of untrusted customer-authored webhooks, ETL transforms, and AI agent code",
+      "Burst-tolerant serverless API endpoints requiring hardware-virtualized KVM isolation",
+      "Ephemeral CI/CD build runners and isolated pull-request preview sandboxes"
+    ],
+    implementations: [
+      {
+        context: "Customer Compute & Webhook Extension Engine",
+        environment: "Production Edge Fleet · 19 Global PoPs",
+        detail:
+          "Runs thousands of concurrent tenant functions inside hardware-isolated Firecracker micro-VMs restored from copy-on-write memory snapshots with eBPF XDP packet routing."
+      },
+      {
+        context: "Ephemeral PR Verification Sandboxes",
+        environment: "Internal Developer Platform · Kubernetes + KVM",
+        detail:
+          "Provisions isolated full-stack preview environments per pull request in seconds, cutting compute idle waste by 76% via rapid snapshot hibernation."
+      }
     ],
     problem:
       "Running untrusted third-party compute plugins inside shared Kubernetes pods created noisy-neighbor CPU throttling and unacceptable container escape surfaces.",
@@ -67,12 +107,32 @@ export const PROJECTS = [
     summary:
       "Columnar trace analytics platform and WebGL flamegraph workbench capable of querying 500M+ spans in sub-second interactive debugging workflows.",
     benchmark: "60fps canvas rendering on 100k-span traces · 180ms P95 ClickHouse query",
+    deployedIn: "Production Incident Response & Distributed Tracing Workbench",
     image: "assets/project_observability_studio.jpg",
     stack: ["TypeScript", "React", "WebGL", "ClickHouse", "OpenTelemetry"],
     metrics: [
       { value: "180ms", label: "P95 Query" },
       { value: "60 FPS", label: "Flamegraph UI" },
       { value: "72%", label: "Storage Compression" }
+    ],
+    useCases: [
+      "Root-cause analysis of cascading tail-latency spikes across polyglot gRPC and HTTP microservices",
+      "High-cardinality attribute slicing (tenant ID, region, build SHA, shard key) over billions of spans",
+      "Interactive critical-path flamegraph inspection for traces exceeding 100,000 child spans"
+    ],
+    implementations: [
+      {
+        context: "SRE On-Call & Incident Response Console",
+        environment: "200+ Production Microservices · OpenTelemetry",
+        detail:
+          "Adopted by platform and product engineering teams as the primary debugging studio during production incidents, reducing Mean Time to Resolution (MTTR) by 54%."
+      },
+      {
+        context: "Continuous Performance Regression Gate",
+        environment: "Staging & Canary Deployment Pipelines",
+        detail:
+          "Compares P95/P99 span duration distributions between baseline and canary releases automatically before promoting rollouts to 100% traffic."
+      }
     ],
     problem:
       "Engineers debugging cascading microservice timeouts waited 15+ seconds for high-cardinality trace queries and hit browser DOM freezes when inspecting traces with >20k spans.",
@@ -92,12 +152,32 @@ export const PROJECTS = [
     summary:
       "Static analyzer and transactional expand/contract migration runner that prevents table-locking DDL operations in high-traffic PostgreSQL clusters.",
     benchmark: "100% lock-safe schema transitions · AST-level SQL lock verification",
+    deployedIn: "CI/CD Release Pipelines Across 30+ Production PostgreSQL Clusters",
     image: "",
     stack: ["Go", "PostgreSQL", "libpg_query", "GitHub Actions", "Docker"],
     metrics: [
       { value: "0s", label: "Lock Downtime" },
       { value: "28 Rules", label: "AST Linters" },
       { value: "<1.5s", label: "CI Verification" }
+    ],
+    useCases: [
+      "Automated CI/CD pull-request linting to block table-locking SQL DDL before merge",
+      "Zero-downtime column type alterations, non-blocking index builds, and constraint validation on multi-terabyte tables",
+      "Automated expand/contract dual-write trigger setup and throttled background batch backfills"
+    ],
+    implementations: [
+      {
+        context: "Vanguard Data Labs · Core Database Release Pipeline",
+        environment: "30+ Production Microservices · GitHub Actions",
+        detail:
+          "Enforced as a mandatory GitHub Actions status check and deployment orchestrator across all PostgreSQL-backed services, eliminating migration-related outages."
+      },
+      {
+        context: "High-Volume Ledger Schema Evolution",
+        environment: "Multi-TB Transactional Tables (50k+ TPS)",
+        detail:
+          "Executed live primary-key partitioning and column migrations on active financial ledger tables with zero read/write stalls and automatic lock-timeout circuit breaking."
+      }
     ],
     problem:
       "Unintended ACCESS EXCLUSIVE locks during routine PostgreSQL schema migrations stalled production read/write queues in high-throughput services.",

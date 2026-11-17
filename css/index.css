@@ -615,6 +615,100 @@ button {
   margin-bottom: 1.15rem;
 }
 
+.project-usage-box {
+  background-color: var(--bg-canvas);
+  border: 1px solid var(--border-hairline);
+  padding: 1rem 1.1rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.usage-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.usage-implementations {
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--border-hairline);
+}
+
+.usage-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+}
+
+.usage-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.usage-list li {
+  position: relative;
+  padding-left: 1rem;
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.usage-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--accent-primary);
+}
+
+.impl-mini-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.impl-mini-item {
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-hairline);
+  padding: 0.65rem 0.8rem;
+}
+
+.impl-mini-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.impl-mini-context {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.impl-mini-env {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--text-muted);
+  background-color: var(--bg-surface);
+  padding: 0.1rem 0.4rem;
+  border: 1px solid var(--border-hairline);
+}
+
+.impl-mini-detail {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
 .project-footer {
   padding-top: 1rem;
   border-top: 1px solid var(--border-hairline);
@@ -981,6 +1075,70 @@ button {
   font-size: 0.94rem;
   color: var(--text-primary);
   line-height: 1.65;
+}
+
+.drawer-bullet-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.drawer-bullet-list li {
+  position: relative;
+  padding-left: 1.15rem;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  line-height: 1.55;
+}
+
+.drawer-bullet-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--accent-primary);
+}
+
+.drawer-impl-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.drawer-impl-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-left: 3px solid var(--accent-primary);
+  padding: 0.95rem 1.1rem;
+}
+
+.drawer-impl-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.drawer-impl-top strong {
+  font-size: 0.92rem;
+  color: var(--text-primary);
+}
+
+.drawer-impl-env {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  background-color: var(--bg-elevated);
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--border-hairline);
+}
+
+.drawer-impl-card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
 }
 
 /* ==========================================================================
