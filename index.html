@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vikranth Gaddam — Software Engineer &amp; Systems Builder</title>
+  <meta name="description" content="Portfolio of Vikranth Gaddam — Software Engineer specializing in distributed systems, low-latency backend infrastructure, cloud-native execution engines, and full-stack product engineering." />
+  <meta property="og:title" content="Vikranth Gaddam — Software Engineer &amp; Systems Builder" />
+  <meta property="og:description" content="Architecting resilient distributed systems and high-craft developer software." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vikranthgaddam.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+  <!-- Subtle SVG Paper-Grain Overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Sticky Editorial Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand-signature" aria-label="Vikranth Gaddam Home">
+        <span class="brand-monogram">V</span>
+        <span class="brand-name">VIKRANTH GADDAM</span>
+        <span class="brand-sep">//</span>
+        <span class="brand-role">SWE &amp; SYSTEMS</span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Primary Navigation">
+        <a href="#work" class="nav-link"><span class="nav-idx">01</span> Selected Work</a>
+        <a href="#experience" class="nav-link"><span class="nav-idx">02</span> Experience</a>
+        <a href="#competencies" class="nav-link"><span class="nav-idx">03</span> Architecture Specs</a>
+        <a href="#contact" class="nav-link"><span class="nav-idx">04</span> Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" id="print-resume-btn" class="btn-ghost mono-sm" title="Print or save formatted resume PDF">
+          Print Resume ⎙
+        </button>
+        <button type="button" id="header-copy-email" class="btn-primary mono-sm">
+          Copy Email
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-meta-bar">
+          <div class="availability-pill">
+            <span class="status-dot"></span>
+            <span id="hero-availability">Available for select engineering roles &amp; technical advisory</span>
+          </div>
+          <div class="mono-meta">
+            <span>EDITION // 2026 MONOGRAPH</span>
+            <span class="meta-divider">·</span>
+            <span>VIKRANTHGADDAM.COM</span>
+          </div>
+        </div>
+
+        <div class="hero-grid">
+          <div class="hero-main">
+            <p class="eyebrow-tag">SOFTWARE ENGINEER · DISTRIBUTED SYSTEMS &amp; INFRASTRUCTURE</p>
+            <h1 class="hero-headline">
+              Architecting resilient <em>distributed systems</em> and high-craft developer software.
+            </h1>
+            <p class="hero-lead" id="hero-bio">
+              I’m <strong>Vikranth Gaddam</strong>, a software engineer focused on low-latency backend infrastructure, cloud-native execution engines, and full-stack product engineering where performance, observability, and operational clarity are first-class constraints.
+            </p>
+
+            <div class="hero-cta-row">
+              <a href="#work" class="btn-primary">
+                Explore Selected Work ↓
+              </a>
+              <button type="button" id="hero-copy-email" class="btn-secondary">
+                <span>hello@vikranthgaddam.com</span>
+                <span class="copy-icon" aria-hidden="true">⧉</span>
+              </button>
+              <a href="https://github.com/vikranthgaddam" target="_blank" rel="noopener noreferrer" class="btn-outline">
+                GitHub ↗
+              </a>
+              <a href="https://www.linkedin.com/in/vikranthgaddam" target="_blank" rel="noopener noreferrer" class="btn-outline">
+                LinkedIn ↗
+              </a>
+            </div>
+          </div>
+
+          <aside class="hero-dossier" aria-label="Technical Specification Dossier">
+            <div class="dossier-header">
+              <span class="dossier-code">SPEC // 00-INDEX</span>
+              <span class="dossier-stamp">VERIFIED</span>
+            </div>
+            <dl class="dossier-list" id="hero-specs">
+              <div class="dossier-item">
+                <dt>Primary Focus</dt>
+                <dd>Distributed Systems, Cloud Infrastructure &amp; Full-Stack Product Engineering</dd>
+              </div>
+              <div class="dossier-item">
+                <dt>Core Languages</dt>
+                <dd>Rust, Go, TypeScript, Python, SQL, C++</dd>
+              </div>
+              <div class="dossier-item">
+                <dt>Infrastructure &amp; Data</dt>
+                <dd>Kubernetes, Kafka, PostgreSQL, Redis, ClickHouse, AWS, Linux eBPF</dd>
+              </div>
+              <div class="dossier-item">
+                <dt>Engineering Philosophy</dt>
+                <dd>Zero-copy data paths, deterministic testing, and measurable tail-latency guarantees.</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+
+        <!-- Impact Metrics Strip -->
+        <div class="metrics-strip" id="metrics-strip" aria-label="Key Engineering Metrics">
+          <div class="metric-cell">
+            <span class="metric-value">99.99%</span>
+            <span class="metric-label">Production SLA across multi-region distributed services</span>
+          </div>
+          <div class="metric-cell">
+            <span class="metric-value">&lt; 4.2ms</span>
+            <span class="metric-label">P99 tail latency on high-throughput event ingestion</span>
+          </div>
+          <div class="metric-cell">
+            <span class="metric-value">1.8M+</span>
+            <span class="metric-label">Peak concurrent requests/sec handled in production</span>
+          </div>
+          <div class="metric-cell">
+            <span class="metric-value">14+</span>
+            <span class="metric-label">Production architectures, engines &amp; developer tools shipped</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 / Selected Work -->
+    <section id="work" class="editorial-section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-index">■ 01 / SELECTED WORK &amp; CASE STUDIES</span>
+            <h2 class="section-title">Featured <em>Engineering</em> Monographs</h2>
+          </div>
+
+          <div class="filter-bar" role="tablist" aria-label="Filter projects by category">
+            <button type="button" class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Systems</button>
+            <button type="button" class="filter-btn" data-filter="systems" role="tab" aria-selected="false">Systems &amp; Infra</button>
+            <button type="button" class="filter-btn" data-filter="fullstack" role="tab" aria-selected="false">Full-Stack &amp; Tooling</button>
+            <button type="button" class="filter-btn" data-filter="opensource" role="tab" aria-selected="false">Open Source</button>
+          </div>
+        </div>
+
+        <div id="projects-grid" class="projects-grid" aria-live="polite">
+          <!-- Populated dynamically by js/main.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 / Experience & Timeline -->
+    <section id="experience" class="editorial-section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-index">■ 02 / CAREER TIMELINE &amp; IMPACT</span>
+            <h2 class="section-title">Engineering <em>Experience</em></h2>
+          </div>
+          <div class="section-header-actions">
+            <span class="mono-hint">Select any role to inspect architectural deliverables</span>
+            <button type="button" id="experience-print-btn" class="btn-outline mono-sm">
+              Save / Print PDF Resume ⎙
+            </button>
+          </div>
+        </div>
+
+        <div id="timeline-list" class="timeline-list">
+          <!-- Populated dynamically by js/main.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 / Technical Competencies & Systems Matrix -->
+    <section id="competencies" class="editorial-section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-index">■ 03 / TECHNICAL SPECIFICATIONS</span>
+            <h2 class="section-title">Systems <em>Competency</em> Matrix</h2>
+          </div>
+        </div>
+
+        <div id="competencies-grid" class="competencies-grid">
+          <!-- Populated dynamically by js/main.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 04 / Editorial Footer -->
+  <footer id="contact" class="site-footer">
+    <div class="container">
+      <div class="footer-cta-card">
+        <div class="footer-cta-copy">
+          <span class="section-index">■ 04 / INITIATE DIALOGUE</span>
+          <h2 class="footer-headline">Let’s build <em>resilient</em> software together.</h2>
+          <p class="footer-subtext">
+            Whether you’re scaling distributed backend infrastructure, designing developer tooling, or hiring for high-impact engineering roles, my inbox is open.
+          </p>
+        </div>
+
+        <div class="footer-cta-actions">
+          <button type="button" id="footer-copy-email" class="btn-primary">
+            Copy hello@vikranthgaddam.com ⧉
+          </button>
+          <a href="mailto:hello@vikranthgaddam.com" class="btn-outline">
+            Open Mail Client ↗
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-colophon">
+        <div class="colophon-left">
+          <span class="brand-monogram-sm">V</span>
+          <span>© 2026 Vikranth Gaddam. Crafted with Semantic HTML5, Editorial CSS &amp; Vanilla ES Modules.</span>
+        </div>
+        <div class="colophon-links">
+          <a href="https://github.com/vikranthgaddam/vikranthportfolio" target="_blank" rel="noopener noreferrer">Source Repo (vikranthportfolio) ↗</a>
+          <a href="https://github.com/vikranthgaddam" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/vikranthgaddam" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-Over Technical Case Study Drawer -->
+  <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+  <aside id="case-study-drawer" class="case-study-drawer" aria-labelledby="drawer-title" aria-hidden="true">
+    <div class="drawer-topbar">
+      <span id="drawer-index" class="mono-meta accent-text">CASE STUDY // 01</span>
+      <button type="button" id="drawer-close-btn" class="drawer-close" aria-label="Close case study drawer">
+        ESC / CLOSE ✕
+      </button>
+    </div>
+    <div id="drawer-content" class="drawer-body">
+      <!-- Populated dynamically by js/main.js -->
+    </div>
+  </aside>
+
+  <!-- Clipboard Toast Notification -->
+  <div id="toast-notification" class="toast-notification" role="status" aria-live="polite" hidden>
+    <span class="toast-indicator"></span>
+    <span id="toast-message">Copied hello@vikranthgaddam.com to clipboard</span>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
