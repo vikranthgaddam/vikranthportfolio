@@ -159,6 +159,71 @@ function renderCompetencies() {
   ).join("");
 }
 
+function renderBlogCards(posts) {
+  const grid = document.getElementById("blog-grid");
+  if (!grid) return;
+
+  grid.innerHTML = posts
+    .map(
+      (post) => `
+      <a href="${post.url}" target="_blank" rel="noopener noreferrer" class="blog-card">
+        <div class="blog-card-top">
+          <div class="blog-meta-row">
+            <span class="blog-index">${post.index}</span>
+            <span class="blog-date">${post.date} · ${post.readTime}</span>
+          </div>
+          <h3 class="blog-title">${post.title}</h3>
+          <p class="blog-summary">${post.summary}</p>
+        </div>
+        <div class="blog-card-footer">
+          <div class="stack-pills">
+            ${(post.tags || [])
+              .map((tag) => `<span class="stack-pill">#${tag}</span>`)
+              .join("")}
+          </div>
+          <span class="blog-read-link">Read on Dev.to ↗</span>
+        </div>
+      </a>
+    `
+    )
+    .join("");
+}
+
+async function loadDevToBlog() {
+  renderBlogCards(BLOG_POSTS);
+
+  if (!PROFILE.devtoUsername) return;
+  try {
+    const res = await fetch(
+      `https://dev.to/api/articles?username=${encodeURIComponent(
+        PROFILE.devtoUsername
+      )}&per_page=6`
+    );
+    if (!res.ok) return;
+    const articles = await res.json();
+    if (Array.isArray(articles) && articles.length > 0) {
+      const livePosts = articles.map((art, i) => ({
+        index: `DEV.TO // 0${i + 1}`,
+        date: art.readable_publish_date
+          ? art.readable_publish_date.toUpperCase()
+          : "PUBLISHED",
+        readTime: `${art.reading_time_minutes || 5} MIN READ`,
+        title: art.title,
+        summary: art.description || "Read the full technical article on Dev.to.",
+        tags: Array.isArray(art.tag_list) ? art.tag_list.slice(0, 4) : [],
+        url: art.url || PROFILE.devtoUrl
+      }));
+      renderBlogCards(livePosts);
+      const badge = document.getElementById("devto-sync-badge");
+      if (badge) {
+        badge.textContent = `LIVE FEED // @${PROFILE.devtoUsername.toUpperCase()} (${articles.length} ARTICLES)`;
+      }
+    }
+  } catch (_) {
+    // Keep curated BLOG_POSTS fallback
+  }
+}
+
 function openDrawer(projectId) {
   const project = PROJECTS.find((p) => p.id === projectId);
   if (!project) return;
@@ -262,6 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderProjects("all");
   renderExperience();
   renderCompetencies();
+  loadDevToBlog();
 
   document.querySelectorAll(".filter-btn").forEach((btn) => {
     btn.addEventListener("click", () => {

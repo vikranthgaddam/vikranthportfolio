@@ -253,3 +253,36 @@ export const COMPETENCIES = [
     tags: ["TypeScript", "React", "ClickHouse", "PostgreSQL", "WebGL", "Node.js"]
   }
 ];
+
+export const BLOG_POSTS = [
+  {
+    index: "ESSAY // 01",
+    date: "DEV.TO SERIES",
+    readTime: "8 MIN READ",
+    title: "Taming Tail Latency: Thread-per-Core Storage Engines with Rust and io_uring",
+    summary:
+      "Why traditional thread-pool message brokers hit P99.9 latency walls during compaction, and how zero-copy asynchronous I/O with strict CPU core pinning eliminates jitter.",
+    tags: ["rust", "distributedsystems", "linux", "performance"],
+    url: "https://dev.to/vikranthgaddam"
+  },
+  {
+    index: "ESSAY // 02",
+    date: "DEV.TO SERIES",
+    readTime: "7 MIN READ",
+    title: "Sub-35ms Serverless Cold Starts with Firecracker Snapshots and eBPF XDP",
+    summary:
+      "A practical walkthrough of copy-on-write micro-VM memory snapshot restoration and bypassing iptables CNI overhead with an eBPF socket-redirect datapath.",
+    tags: ["go", "ebpf", "kubernetes", "cloud"],
+    url: "https://dev.to/vikranthgaddam"
+  },
+  {
+    index: "ESSAY // 03",
+    date: "DEV.TO SERIES",
+    readTime: "6 MIN READ",
+    title: "Zero-Downtime PostgreSQL Migrations at 50k+ TPS Using AST Lock Verification",
+    summary:
+      "How to catch table-locking DDL statements in CI using PostgreSQL's native C parser (libpg_query) and orchestrate expand/contract dual-write backfills safely.",
+    tags: ["postgres", "database", "devops", "go"],
+    url: "https://dev.to/vikranthgaddam"
+  }
+];
